@@ -1,0 +1,42 @@
+{
+    "name": "DND Extension",
+    "version": "1.0.0",
+    "description": "Connects to funny custom DND website",
+    "manifest_version": 3,
+    "author": "Collin Householder",
+    "background": {
+        "service_worker": "dist/background.js",
+        "type:": "module"
+    },
+    "permissions": [
+        "tabs"
+    ],
+    "web_accessible_resources": [{
+        "resources": [
+            "libs/jquery-3.7.0.min.js",
+            "dist/dndcharacter.js",
+            "dist/websiteInject.js",
+            "dist/dndbeyond/character.js",
+            "dist/dndbeyond/base.js"
+        ],
+        "matches": ["<all_urls>"]
+    }],
+    "content_scripts": [
+        {
+            "js": [
+                "libs/jquery-3.7.0.min.js",
+                "dist/dndbeyond.js"
+            ],
+            "matches": ["*://*.dndbeyond.com/*characters/*"],
+            "all_frames": true
+        },
+        {
+            "js": [
+                "libs/jquery-3.7.0.min.js",
+                "dist/website.js"
+            ],
+            "matches": ["*://localhost:*/", "*://facelesstiger.mooo.com/*"],
+            "all_frames": true
+        }
+    ]
+}

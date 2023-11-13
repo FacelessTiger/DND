@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.237",
+    "@types/jquery": "^3.5.16",
+    "typescript": "^5.0.4"
+  }
+}
